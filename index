@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUV — Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ─── MUV CORE PALETTE ─── */
+  --muv-black:      #0D1117;
+  --muv-surface:    #161B22;
+  --muv-surface-2:  #1E2630;
+  --muv-surface-3:  #252D38;
+  --muv-orange:     #FF5F1F;
+  --muv-orange-dim: rgba(255,95,31,0.12);
+  --muv-orange-glow:rgba(255,95,31,0.35);
+  --muv-white:      #F0EDEB;
+  --muv-white-60:   rgba(240,237,235,0.6);
+  --muv-white-30:   rgba(240,237,235,0.3);
+  --muv-white-10:   rgba(240,237,235,0.08);
+  --muv-gray:       #6B7280;
+  --muv-border:     rgba(240,237,235,0.08);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--muv-black);
+  color: var(--muv-white);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ═══ LAYOUT PRIMITIVES ═══════════════════════════ */
+.page { padding: 80px 72px; position: relative; }
+.page-wide { padding: 80px 0; position: relative; }
+.divider { border: none; border-top: 1px solid var(--muv-border); }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muv-gray);
+  margin-bottom: 48px;
+}
+.chip::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--muv-orange);
+}
+
+h2.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(44px, 6vw, 72px);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+p.section-body {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muv-white-60);
+  max-width: 620px;
+  margin-bottom: 64px;
+}
+
+/* ═══ 00 — COVER ══════════════════════════════════ */
+.cover {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 48px 72px;
+  background: var(--muv-black);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Orange glow top-right */
+.cover::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,95,31,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cover-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muv-gray);
+  position: relative;
+  z-index: 2;
+}
+
+.cover-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color: var(--muv-white);
+}
+
+.cover-logo span {
+  color: var(--muv-orange);
+}
+
+.cover-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cover-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+  margin-bottom: 24px;
+}
+
+.cover-wordmark {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-muv {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(100px, 18vw, 220px);
+  line-height: 0.88;
+  letter-spacing: 0.04em;
+  color: var(--muv-white);
+}
+
+.cover-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+  margin-top: 20px;
+}
+
+.cover-desc {
+  margin-top: 56px;
+  max-width: 480px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muv-white-60);
+}
+
+.cover-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  border-top: 1px solid var(--muv-border);
+  padding-top: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.cover-footer-item {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.cover-footer-item span {
+  display: block;
+  color: var(--muv-gray);
+  margin-bottom: 4px;
+}
+
+.cover-footer-item strong {
+  color: var(--muv-white);
+  font-weight: 500;
+}
+
+/* ═══ 01 — MANIFESTO ═════════════════════════════ */
+.manifesto {
+  background: var(--muv-surface);
+  padding: 100px 72px;
+}
+
+.manifesto-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4.5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  max-width: 900px;
+}
+
+.manifesto-text .highlight {
+  color: var(--muv-orange);
+}
+
+.manifesto-text .dim {
+  color: var(--muv-white-30);
+}
+
+.manifesto-sub {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.manifesto-value {
+  background: var(--muv-surface-2);
+  padding: 32px 28px;
+  border-top: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.manifesto-value:hover {
+  border-top-color: var(--muv-orange);
+}
+
+.manifesto-value-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muv-white);
+  margin-bottom: 12px;
+}
+
+.manifesto-value-text {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--muv-white-60);
+}
+
+/* ═══ 02 — LOGO SYSTEM ═══════════════════════════ */
+.logo-section { background: var(--muv-black); padding: 80px 72px; }
+
+.logo-primary {
+  background: var(--muv-surface);
+  padding: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+/* subtle grid overlay */
+.logo-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--muv-white-10) 1px, transparent 1px),
+    linear-gradient(90deg, var(--muv-white-10) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.logo-muv-display {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 120px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  color: var(--muv-white);
+  position: relative;
+  z-index: 1;
+}
+
+.logo-tag-display {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+  position: relative;
+  z-index: 1;
+}
+
+.logo-variants {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.logo-variant {
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.lv-dark { background: var(--muv-surface); }
+.lv-darker { background: #070A0E; }
+.lv-white { background: var(--muv-white); }
+.lv-orange { background: var(--muv-orange); }
+.lv-mid { background: #2A3441; }
+
+.lv-white .logo-muv-sm { color: var(--muv-black) !important; }
+.lv-white .logo-tag-sm { color: rgba(10,10,10,0.5) !important; }
+.lv-orange .logo-muv-sm { color: var(--muv-white) !important; }
+.lv-orange .logo-tag-sm { color: rgba(240,237,235,0.7) !important; }
+
+.logo-muv-sm {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  letter-spacing: 0.12em;
+  color: var(--muv-white);
+  line-height: 1;
+}
+
+.logo-tag-sm {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+}
+
+.logo-variant-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muv-gray);
+  margin-top: 8px;
+}
+
+/* Logo don'ts */
+.logo-rules {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.logo-rule {
+  background: var(--muv-surface);
+  padding: 32px 24px;
+}
+
+.logo-rule-preview {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border: 1px solid var(--muv-border);
+}
+
+.logo-rule-bad {
+  position: relative;
+}
+.logo-rule-bad::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255,60,60,0.5);
+}
+
+.logo-rule-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muv-gray);
+  margin-bottom: 6px;
+}
+
+.logo-rule-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muv-white-60);
+  line-height: 1.5;
+}
+
+.dont-tag { color: rgba(255,80,80,0.8); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+.do-tag { color: rgba(80,220,130,0.8); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+
+/* Clearspace */
+.clearspace-demo {
+  background: var(--muv-surface);
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  position: relative;
+}
+
+.clearspace-inner {
+  border: 1px dashed rgba(255,95,31,0.3);
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.clearspace-arrow {
+  position: absolute;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+}
+
+/* ═══ 03 — COLOR SYSTEM ══════════════════════════ */
+.color-section { background: var(--muv-black); padding: 80px 72px; }
+
+.color-hero {
+  height: 280px;
+  display: flex;
+  gap: 2px;
+  margin-bottom: 2px;
+  overflow: hidden;
+}
+
+.color-hero-swatch {
+  flex: 1;
+  position: relative;
+  transition: flex 0.5s cubic-bezier(.25,1,.5,1);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 20px;
+}
+
+.color-hero-swatch:hover { flex: 3; }
+
+.swatch-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.swatch-hex-val {
+  font-family: 'Inter', monospace;
+  font-size: 11px;
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+}
+
+.swatch-role-val {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 4px;
+}
+
+.c-black   { background: #0D1117; }
+.c-surface { background: #161B22; }
+.c-s2      { background: #1E2630; }
+.c-orange  { background: #FF5F1F; }
+.c-white   { background: #F0EDEB; }
+.c-gray    { background: #6B7280; }
+
+.dark-label  { color: var(--muv-white); }
+.light-label { color: var(--muv-black); }
+
+/* Color usage system */
+.color-usage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.color-usage-card {
+  background: var(--muv-surface);
+  padding: 40px 36px;
+}
+
+.usage-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muv-white);
+  margin-bottom: 8px;
+}
+
+.usage-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muv-white-60);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.usage-bar {
+  height: 8px;
+  border-radius: 99px;
+  overflow: hidden;
+  background: var(--muv-surface-3);
+  display: flex;
+  gap: 2px;
+}
+
+.usage-fill {
+  height: 100%;
+  border-radius: 99px;
+}
+
+/* Gradients */
+.color-gradients {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.gradient-card {
+  height: 160px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.gradient-card-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240,237,235,0.7);
+}
+
+.gradient-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: var(--muv-white);
+}
+
+.g1 { background: radial-gradient(circle at 80% 20%, rgba(255,95,31,0.4) 0%, #0D1117 60%); }
+.g2 { background: linear-gradient(135deg, #1E2630 0%, #FF5F1F 100%); }
+.g3 { background: linear-gradient(180deg, #0D1117 0%, #161B22 50%, rgba(255,95,31,0.08) 100%); }
+
+/* ═══ 04 — TYPOGRAPHY ════════════════════════════ */
+.type-section { background: var(--muv-surface); padding: 80px 72px; }
+
+.type-scale {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.type-row {
+  display: contents;
+}
+
+.type-meta-col {
+  background: var(--muv-surface-2);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.type-meta-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+  margin-bottom: 4px;
+}
+
+.type-meta-spec {
+  font-size: 11px;
+  color: var(--muv-gray);
+  line-height: 1.5;
+}
+
+.type-example-col {
+  background: var(--muv-surface-2);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.te-d1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--muv-white);
+}
+
+.te-d2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--muv-white);
+}
+
+.te-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.06em;
+  color: var(--muv-white);
+}
+
+.te-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+}
+
+.te-body {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muv-white-60);
+  max-width: 480px;
+}
+
+.te-small {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--muv-gray);
+}
+
+.te-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--muv-orange);
+}
+
+/* Type in context */
+.type-in-context {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.tic-card {
+  background: var(--muv-surface-2);
+  padding: 48px 40px;
+}
+
+/* ═══ 05 — ICONOGRAPHY & GRAPHIC ELEMENTS ════════ */
+.icon-section { background: var(--muv-black); padding: 80px 72px; }
+
+.graphic-elements {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.ge-card {
+  background: var(--muv-surface);
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.ge-visual {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ge-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muv-gray);
+  text-align: center;
+}
+
+/* SVG Icons */
+.icon-diamond {
+  width: 40px;
+  height: 40px;
+  background: var(--muv-white-10);
+  transform: rotate(45deg);
+  border: 1px solid var(--muv-white-30);
+  position: relative;
+}
+
+.icon-diamond::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: transparent;
+  border: 1px solid rgba(240,237,235,0.15);
+}
+
+.icon-arrow {
+  width: 48px;
+  height: 2px;
+  background: var(--muv-orange);
+  position: relative;
+}
+
+.icon-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -5px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid var(--muv-orange);
+  border-right: 2px solid var(--muv-orange);
+  transform: rotate(45deg);
+}
+
+.icon-slash {
+  width: 2px;
+  height: 48px;
+  background: var(--muv-white-30);
+  transform: rotate(25deg);
+}
+
+.icon-dot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muv-white-30);
+}
+
+.dot.accent { background: var(--muv-orange); }
+
+/* ═══ 06 — BRAND VOICE ═══════════════════════════ */
+.voice-section { background: var(--muv-surface); padding: 80px 72px; }
+
+.voice-spectrum {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+  margin-bottom: 2px;
+}
+
+.vs-card {
+  background: var(--muv-surface-2);
+  padding: 36px 28px;
+}
+
+.vs-axis {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.vs-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muv-orange);
+  flex-shrink: 0;
+}
+
+.vs-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muv-white);
+}
+
+.vs-not {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muv-gray);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  margin-top: 2px;
+}
+
+.vs-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--muv-white-60);
+}
+
+/* Copy examples */
+.copy-examples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.copy-card {
+  background: var(--muv-surface-2);
+  padding: 40px 36px;
+}
+
+.copy-card-header {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  display: inline-block;
+  margin-bottom: 28px;
+  border-radius: 2px;
+}
+
+.copy-do .copy-card-header {
+  background: rgba(80,220,130,0.1);
+  color: rgba(80,220,130,0.9);
+}
+
+.copy-dont .copy-card-header {
+  background: rgba(255,80,80,0.1);
+  color: rgba(255,80,80,0.9);
+}
+
+.copy-line {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--muv-border);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muv-white-60);
+  line-height: 1.5;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.copy-line::before {
+  content: '—';
+  color: var(--muv-gray);
+  flex-shrink: 0;
+}
+
+.copy-do .copy-line { color: var(--muv-white-60); }
+.copy-dont .copy-line { color: rgba(240,237,235,0.35); text-decoration: line-through; text-decoration-color: rgba(255,80,80,0.4); }
+
+/* ═══ 07 — PHOTOGRAPHY DIRECTION ════════════════ */
+.photo-section { background: var(--muv-black); padding: 80px 72px; }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 280px 280px;
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.photo-card {
+  background: var(--muv-surface);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 24px;
+}
+
+.photo-card-span2 {
+  grid-column: span 2;
+}
+
+.photo-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,17,23,0.9) 0%, transparent 55%);
+  z-index: 1;
+}
+
+.photo-art {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.photo-card-tag {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+  margin-bottom: 6px;
+}
+
+.photo-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--muv-white);
+}
+
+.photo-card-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muv-white-60);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* Abstract arts for photo cards */
+.art-radial {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    rgba(255,95,31,0.04) 0%,
+    rgba(255,95,31,0.12) 20%,
+    rgba(240,237,235,0.04) 40%,
+    rgba(255,95,31,0.08) 60%,
+    rgba(240,237,235,0.02) 80%,
+    rgba(255,95,31,0.04) 100%
+  );
+  filter: blur(2px);
+}
+
+.art-lines-diag {
+  width: 200%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transform: rotate(-25deg) translateY(-40px);
+}
+
+.art-line-item {
+  height: 1px;
+  background: rgba(255,255,255,0.04);
+}
+.art-line-item:nth-child(3) { background: rgba(255,95,31,0.15); height: 2px; }
+.art-line-item:nth-child(7) { background: rgba(255,95,31,0.08); }
+
+.art-dots-pattern {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.art-big-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 240px;
+  color: rgba(255,255,255,0.03);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
+}
+
+.art-circle-set {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.art-circle-set::before,
+.art-circle-set::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.art-circle-set::before {
+  inset: 0;
+}
+
+.art-circle-set::after {
+  inset: 24px;
+  border-color: rgba(255,95,31,0.12);
+}
+
+/* ═══ 08 — BRAND SYSTEM OVERVIEW ════════════════ */
+.overview-section { background: var(--muv-surface); padding: 80px 72px; }
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.ov-card {
+  background: var(--muv-surface-2);
+  padding: 40px 32px;
+  border-top: 2px solid transparent;
+}
+
+.ov-card:hover { border-top-color: var(--muv-orange); }
+
+.ov-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  color: var(--muv-white-10);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.ov-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muv-white);
+  margin-bottom: 12px;
+}
+
+.ov-value {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muv-orange);
+  margin-bottom: 8px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+}
+
+.ov-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--muv-white-60);
+}
+
+/* ═══ CLOSING ════════════════════════════════════ */
+.closing {
+  background: var(--muv-black);
+  padding: 120px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.closing::before {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(255,95,31,0.08) 0%, transparent 70%);
+}
+
+.closing-kicker {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.closing-mark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 14vw, 180px);
+  line-height: 0.9;
+  color: var(--muv-white);
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.closing-tagline-final {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--muv-orange);
+  position: relative;
+  margin-bottom: 64px;
+}
+
+.closing-body {
+  max-width: 480px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muv-white-60);
+  position: relative;
+}
+
+.closing-version {
+  margin-top: 80px;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muv-gray);
+  position: relative;
+}
+
+/* ═══ RESPONSIVE ════════════════════════════════ */
+@media (max-width: 960px) {
+  .cover, .page, section { padding: 60px 32px; }
+  .manifesto-sub, .logo-variants, .voice-spectrum,
+  .overview-grid, .color-gradients { grid-template-columns: 1fr; }
+  .logo-rules { grid-template-columns: 1fr 1fr; }
+  .color-usage, .copy-examples, .type-in-context { grid-template-columns: 1fr; }
+  .graphic-elements { grid-template-columns: repeat(2, 1fr); }
+  .photo-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .photo-card-span2 { grid-column: span 1; }
+  .type-scale { grid-template-columns: 1fr; }
+  .color-hero { flex-wrap: wrap; height: auto; }
+  .color-hero-swatch { flex-basis: calc(33% - 2px); height: 100px; }
+  .logo-rules { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     COVER
+══════════════════════════════════════ -->
+<div class="cover">
+  <nav class="cover-nav">
+    <span class="cover-logo">M<span>U</span>V</span>
+    <span>Brand Guidelines</span>
+    <span>v1.0 · 2026</span>
+  </nav>
+
+  <div class="cover-body">
+    <p class="cover-eyebrow">Identidade Visual</p>
+    <div class="cover-wordmark">
+      <p class="cover-muv">MUV</p>
+      <p class="cover-tagline">Move &nbsp;·&nbsp; Track &nbsp;·&nbsp; Evolve</p>
+    </div>
+    <p class="cover-desc">
+      Este documento define o sistema visual completo da MUV — as regras que garantem que a marca seja reconhecida, respeitada e desejada em qualquer ponto de contato.
+    </p>
+  </div>
+
+  <footer class="cover-footer">
+    <div class="cover-footer-item">
+      <span>Segmento</span>
+      <strong>Sports Technology</strong>
+    </div>
+    <div class="cover-footer-item">
+      <span>Modalidades</span>
+      <strong>Beach Tennis & Padel</strong>
+    </div>
+    <div class="cover-footer-item">
+      <span>Posicionamento</span>
+      <strong>Athletic Premium</strong>
+    </div>
+  </footer>
+</div>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     01 — MANIFESTO
+══════════════════════════════════════ -->
+<section class="manifesto">
+  <p class="chip">01 — Manifesto</p>
+
+  <p class="manifesto-text">
+    <span class="dim">Você não é</span> apenas um jogador.<br>
+    Você é <span class="highlight">dados, história e evolução</span>.<br>
+    <span class="dim">MUV existe para provar isso</span><br>
+    a cada ponto que você marca.
+  </p>
+
+  <div class="manifesto-sub">
+    <div class="manifesto-value">
+      <p class="manifesto-value-title">Exclusividade</p>
+      <p class="manifesto-value-text">Não é sobre quem entra. É sobre o que você sente quando está dentro. A MUV cria pertencimento — a sensação de que fazer parte de algo importa.</p>
+    </div>
+    <div class="manifesto-value">
+      <p class="manifesto-value-title">Identidade</p>
+      <p class="manifesto-value-text">A marca é um espelho. Quando o atleta olha para a MUV, ele vê quem ele quer se tornar. Cada feature, cada conquista reforça essa imagem.</p>
+    </div>
+    <div class="manifesto-value">
+      <p class="manifesto-value-title">Movimento</p>
+      <p class="manifesto-value-text">Nada fica parado. O atleta evolui. A comunidade cresce. A tecnologia avança. MUV é o único estado que a marca aceita: em movimento.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     02 — LOGO SYSTEM
+══════════════════════════════════════ -->
+<section class="logo-section">
+  <p class="chip">02 — Sistema de Logo</p>
+  <h2 class="section-title">Wordmark</h2>
+  <p class="section-body">O logo principal da MUV é composto pelo wordmark em Bebas Neue e a tagline em Inter. A combinação é o símbolo central da marca — use-o sem alterações.</p>
+
+  <!-- Primary logo -->
+  <div class="logo-primary">
+    <p class="logo-muv-display">MUV</p>
+    <p class="logo-tag-display">Move &nbsp;·&nbsp; Track &nbsp;·&nbsp; Evolve</p>
+  </div>
+
+  <!-- Variants -->
+  <div class="logo-variants">
+    <div class="logo-variant lv-dark">
+      <p class="logo-muv-sm">MUV</p>
+      <p class="logo-tag-sm">Move · Track · Evolve</p>
+      <p class="logo-variant-label">Fundo escuro — primário</p>
+    </div>
+    <div class="logo-variant lv-darker">
+      <p class="logo-muv-sm">MUV</p>
+      <p class="logo-tag-sm">Move · Track · Evolve</p>
+      <p class="logo-variant-label">Fundo preto</p>
+    </div>
+    <div class="logo-variant lv-white">
+      <p class="logo-muv-sm">MUV</p>
+      <p class="logo-tag-sm">Move · Track · Evolve</p>
+      <p class="logo-variant-label">Fundo claro — invertido</p>
+    </div>
+    <div class="logo-variant lv-orange">
+      <p class="logo-muv-sm">MUV</p>
+      <p class="logo-tag-sm">Move · Track · Evolve</p>
+      <p class="logo-variant-label">Fundo laranja</p>
+    </div>
+    <div class="logo-variant lv-mid">
+      <p class="logo-muv-sm">MUV</p>
+      <p class="logo-tag-sm">Move · Track · Evolve</p>
+      <p class="logo-variant-label">Fundo médio</p>
+    </div>
+    <div class="logo-variant" style="background: var(--muv-surface-3); justify-content: center;">
+      <p style="font-family:'Bebas Neue',sans-serif; font-size: 64px; letter-spacing: 0.12em; color: var(--muv-white);">MUV</p>
+      <p class="logo-variant-label">Wordmark isolado — ícone app</p>
+    </div>
+  </div>
+
+  <!-- Clearspace -->
+  <div class="clearspace-demo">
+    <div style="position:relative; padding: 40px;">
+      <div class="clearspace-inner">
+        <p style="font-family:'Bebas Neue',sans-serif; font-size:64px; letter-spacing:0.12em; color:var(--muv-white); line-height:1;">MUV</p>
+        <p style="font-size:10px; font-weight:600; letter-spacing:0.45em; color:var(--muv-orange);">Move · Track · Evolve</p>
+      </div>
+      <p style="position:absolute; top:8px; left:50%; transform:translateX(-50%); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muv-orange);">← Área de proteção = altura do "M" →</p>
+    </div>
+    <div style="margin-left: 80px; max-width: 280px;">
+      <p style="font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--muv-white); margin-bottom:12px;">Espaço de Proteção</p>
+      <p style="font-size:13px; font-weight:300; line-height:1.65; color:var(--muv-white-60);">Mantenha sempre uma área livre ao redor do logo equivalente à altura da letra "M". Nenhum elemento visual ou texto deve invadir essa área.</p>
+    </div>
+  </div>
+
+  <!-- Logo don'ts -->
+  <div style="margin-top: 40px;">
+    <p style="font-size:11px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--muv-gray); margin-bottom:2px;">Usos Incorretos</p>
+    <div class="logo-rules">
+      <div class="logo-rule">
+        <div class="logo-rule-preview logo-rule-bad" style="background:var(--muv-surface-2);">
+          <p style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:0.1em; color:var(--muv-orange);">MUV</p>
+        </div>
+        <p class="dont-tag">Não fazer</p>
+        <p class="logo-rule-label">Colorir o wordmark</p>
+        <p class="logo-rule-desc">O wordmark deve ser sempre branco, preto ou na versão invertida. O laranja é exclusivo da tagline e de elementos de destaque.</p>
+      </div>
+      <div class="logo-rule">
+        <div class="logo-rule-preview logo-rule-bad" style="background:var(--muv-surface-2);">
+          <p style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:0.1em; color:var(--muv-white); transform:skewX(-10deg);">MUV</p>
+        </div>
+        <p class="dont-tag">Não fazer</p>
+        <p class="logo-rule-label">Distorcer o logo</p>
+        <p class="logo-rule-desc">Nunca distorça, incline, estique ou aplique transformações geométricas ao wordmark.</p>
+      </div>
+      <div class="logo-rule">
+        <div class="logo-rule-preview logo-rule-bad" style="background: linear-gradient(45deg, #FF5F1F, #FFD700);">
+          <p style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:0.1em; color:var(--muv-white);">MUV</p>
+        </div>
+        <p class="dont-tag">Não fazer</p>
+        <p class="logo-rule-label">Fundo não aprovado</p>
+        <p class="logo-rule-desc">Use apenas os fundos do sistema de cores MUV. Gradientes coloridos comprometem a leitura e o posicionamento da marca.</p>
+      </div>
+      <div class="logo-rule">
+        <div class="logo-rule-preview logo-rule-bad" style="background:var(--muv-surface-2); text-align:center; padding: 16px;">
+          <p style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:0.1em; color:var(--muv-white);">MUV</p>
+          <p style="font-size:6px; font-weight:600; letter-spacing:0.4em; color:var(--muv-orange);">Move · Track · Evolve</p>
+        </div>
+        <p class="dont-tag">Não fazer</p>
+        <p class="logo-rule-label">Tamanho mínimo</p>
+        <p class="logo-rule-desc">O logo completo deve ter no mínimo 120px de largura em digital e 30mm em impressão para garantir leitura da tagline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     03 — COLOR SYSTEM
+══════════════════════════════════════ -->
+<section class="color-section">
+  <p class="chip">03 — Sistema de Cores</p>
+  <h2 class="section-title">Paleta Dark Court</h2>
+  <p class="section-body">A combinação entre o tech noturno do Midnight Move e a energia do Solar Court. Fundos profundos que fazem o laranja vibrar. Dois mundos, uma identidade.</p>
+
+  <!-- Hero swatches — interactive -->
+  <div class="color-hero">
+    <div class="color-hero-swatch c-black dark-label">
+      <span class="swatch-name">MUV Black</span>
+      <span class="swatch-hex-val">#0D1117</span>
+      <span class="swatch-role-val">Background Base</span>
+    </div>
+    <div class="color-hero-swatch c-surface dark-label">
+      <span class="swatch-name">Surface</span>
+      <span class="swatch-hex-val">#161B22</span>
+      <span class="swatch-role-val">Cards & Panels</span>
+    </div>
+    <div class="color-hero-swatch c-s2 dark-label">
+      <span class="swatch-name">Surface 2</span>
+      <span class="swatch-hex-val">#1E2630</span>
+      <span class="swatch-role-val">Elevated Elements</span>
+    </div>
+    <div class="color-hero-swatch c-orange dark-label">
+      <span class="swatch-name">MUV Orange</span>
+      <span class="swatch-hex-val">#FF5F1F</span>
+      <span class="swatch-role-val">Primary Accent</span>
+    </div>
+    <div class="color-hero-swatch c-white light-label">
+      <span class="swatch-name">Off White</span>
+      <span class="swatch-hex-val">#F0EDEB</span>
+      <span class="swatch-role-val">Primary Text</span>
+    </div>
+    <div class="color-hero-swatch c-gray dark-label">
+      <span class="swatch-name">MUV Gray</span>
+      <span class="swatch-hex-val">#6B7280</span>
+      <span class="swatch-role-val">Secondary Text</span>
+    </div>
+  </div>
+
+  <!-- Color usage -->
+  <div class="color-usage">
+    <div class="color-usage-card">
+      <p class="usage-title">MUV Black &amp; Surfaces</p>
+      <p class="usage-desc">As cores de fundo formam 80% de qualquer composição MUV. O espaço escuro é o que torna o laranja poderoso — não use laranja sem os fundos escuros.</p>
+      <div style="display:flex; gap: 8px; margin-bottom: 12px;">
+        <div style="width:40px; height:40px; background:#0D1117; border:1px solid var(--muv-border);"></div>
+        <div style="width:40px; height:40px; background:#161B22;"></div>
+        <div style="width:40px; height:40px; background:#1E2630;"></div>
+        <div style="width:40px; height:40px; background:#252D38;"></div>
+      </div>
+      <div class="usage-bar">
+        <div class="usage-fill" style="width:80%; background: linear-gradient(90deg, #0D1117, #1E2630);"></div>
+      </div>
+      <p style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--muv-gray); margin-top:8px;">80% das composições</p>
+    </div>
+    <div class="color-usage-card">
+      <p class="usage-title">MUV Orange — Sinal</p>
+      <p class="usage-desc">O laranja é a cor de impacto. Use em CTAs, destaques, elementos interativos, conquistas e tagline. Nunca como fundo dominante, nunca em texto corrido.</p>
+      <div style="display:flex; gap: 8px; margin-bottom: 12px;">
+        <div style="width:40px; height:40px; background:#FF5F1F;"></div>
+        <div style="width:40px; height:40px; background:rgba(255,95,31,0.35);"></div>
+        <div style="width:40px; height:40px; background:rgba(255,95,31,0.12);"></div>
+        <div style="width:40px; height:40px; background:rgba(255,95,31,0.05); border:1px solid rgba(255,95,31,0.2);"></div>
+      </div>
+      <div class="usage-bar">
+        <div class="usage-fill" style="width:15%; background: #FF5F1F;"></div>
+      </div>
+      <p style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--muv-gray); margin-top:8px;">15% das composições</p>
+    </div>
+    <div class="color-usage-card">
+      <p class="usage-title">Off White — Texto</p>
+      <p class="usage-desc">A cor de texto principal. Ligeiramente quente para não endurecer no fundo escuro. Use em três opacidades: 100% para títulos, 60% para corpo, 30% para texto de suporte.</p>
+      <div style="display:flex; gap: 8px; margin-bottom: 12px;">
+        <div style="width:40px; height:40px; background:#F0EDEB;"></div>
+        <div style="width:40px; height:40px; background:rgba(240,237,235,0.6);"></div>
+        <div style="width:40px; height:40px; background:rgba(240,237,235,0.3);"></div>
+        <div style="width:40px; height:40px; background:rgba(240,237,235,0.08); border:1px solid rgba(240,237,235,0.1);"></div>
+      </div>
+      <div class="usage-bar">
+        <div class="usage-fill" style="width:5%; background: #F0EDEB;"></div>
+      </div>
+      <p style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--muv-gray); margin-top:8px;">5% das composições</p>
+    </div>
+    <div class="color-usage-card">
+      <p class="usage-title">Gradientes Aprovados</p>
+      <p class="usage-desc">Três gradientes compõem o vocabulário visual da MUV. Use com moderação — um por composição, nunca sobrepostos.</p>
+      <div style="display:flex; gap: 8px; margin-bottom: 12px;">
+        <div style="flex:1; height:40px; background: radial-gradient(circle at 80% 20%, rgba(255,95,31,0.4) 0%, #0D1117 70%);"></div>
+        <div style="flex:1; height:40px; background: linear-gradient(135deg, #1E2630 0%, rgba(255,95,31,0.6) 100%);"></div>
+        <div style="flex:1; height:40px; background: linear-gradient(180deg, #0D1117 0%, rgba(255,95,31,0.06) 100%);"></div>
+      </div>
+      <p style="font-size:11px; color:var(--muv-gray);">Glow · Diagonal · Subtle Fade</p>
+    </div>
+  </div>
+
+  <!-- Gradients showcase -->
+  <div class="color-gradients" style="margin-top:2px;">
+    <div class="gradient-card g1">
+      <p class="gradient-card-label">Gradiente 01</p>
+      <p class="gradient-card-name">Orange Glow</p>
+    </div>
+    <div class="gradient-card g2">
+      <p class="gradient-card-label">Gradiente 02</p>
+      <p class="gradient-card-name">Diagonal Fire</p>
+    </div>
+    <div class="gradient-card g3">
+      <p class="gradient-card-label">Gradiente 03</p>
+      <p class="gradient-card-name">Subtle Fade</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     04 — TYPOGRAPHY
+══════════════════════════════════════ -->
+<section class="type-section">
+  <p class="chip">04 — Tipografia</p>
+  <h2 class="section-title">Sistema Tipográfico</h2>
+  <p class="section-body">Dois pesos, dois mundos. Bebas Neue para impacto e identidade. Inter para clareza e interface. A combinação entre força estrutural e leiturabilidade humana.</p>
+
+  <div class="type-scale">
+    <div class="type-meta-col">
+      <p class="type-meta-name">Display 1</p>
+      <p class="type-meta-spec">Bebas Neue<br>Font-size: 80–160px<br>Tracking: 0.04em</p>
+    </div>
+    <div class="type-example-col">
+      <p class="te-d1">VOCÊ MOVE</p>
+    </div>
+
+    <div class="type-meta-col" style="background:var(--muv-surface-3);">
+      <p class="type-meta-name">Display 2</p>
+      <p class="type-meta-spec">Bebas Neue<br>Font-size: 48–80px<br>Tracking: 0.04em</p>
+    </div>
+    <div class="type-example-col" style="background:var(--muv-surface-3);">
+      <p class="te-d2">500 PONTOS MARCADOS</p>
+    </div>
+
+    <div class="type-meta-col">
+      <p class="type-meta-name">Heading 1</p>
+      <p class="type-meta-spec">Bebas Neue<br>Font-size: 28–40px<br>Tracking: 0.05em</p>
+    </div>
+    <div class="type-example-col">
+      <p class="te-h1">Conquista Desbloqueada</p>
+    </div>
+
+    <div class="type-meta-col" style="background:var(--muv-surface-3);">
+      <p class="type-meta-name">Label / Tag</p>
+      <p class="type-meta-spec">Inter Semibold<br>Font-size: 10–12px<br>Tracking: 0.3em<br>ALL CAPS</p>
+    </div>
+    <div class="type-example-col" style="background:var(--muv-surface-3);">
+      <p class="te-label">Beach Tennis · Ranking Mensal</p>
+    </div>
+
+    <div class="type-meta-col">
+      <p class="type-meta-name">Body</p>
+      <p class="type-meta-spec">Inter Light 300<br>Font-size: 15–18px<br>Line-height: 1.75</p>
+    </div>
+    <div class="type-example-col">
+      <p class="te-body">Cada ponto marcado vira dado. Cada dado vira história. Acompanhe sua evolução em tempo real com a MUV.</p>
+    </div>
+
+    <div class="type-meta-col" style="background:var(--muv-surface-3);">
+      <p class="type-meta-name">Caption</p>
+      <p class="type-meta-spec">Inter Regular 400<br>Font-size: 12–13px<br>Color: Gray</p>
+    </div>
+    <div class="type-example-col" style="background:var(--muv-surface-3);">
+      <p class="te-small">Atualizado há 3 minutos · Arena São Conrado · Rio de Janeiro</p>
+    </div>
+
+    <div class="type-meta-col">
+      <p class="type-meta-name">Data / Number</p>
+      <p class="type-meta-spec">Bebas Neue<br>Font-size: 48–80px<br>Color: Orange</p>
+    </div>
+    <div class="type-example-col">
+      <p class="te-num">1.284</p>
+    </div>
+  </div>
+
+  <!-- In-context -->
+  <div class="type-in-context">
+    <div class="tic-card">
+      <p style="font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--muv-orange); margin-bottom:12px;">Achievement Unlocked</p>
+      <p style="font-family:'Bebas Neue',sans-serif; font-size:40px; letter-spacing:0.05em; color:var(--muv-white); margin-bottom:8px;">Ace Machine</p>
+      <p style="font-size:14px; font-weight:300; line-height:1.7; color:var(--muv-white-60);">Você marcou 50 aces em partidas oficiais. Isso coloca você entre os 5% mais precisos da comunidade MUV.</p>
+      <div style="margin-top:24px; display:flex; gap:24px; align-items:center;">
+        <p style="font-family:'Bebas Neue',sans-serif; font-size:48px; color:var(--muv-orange); line-height:1;">50</p>
+        <div>
+          <p style="font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--muv-gray); margin-bottom:4px;">Aces Totais</p>
+          <p style="font-size:12px; font-weight:300; color:var(--muv-white-60);">Top 5% da comunidade</p>
+        </div>
+      </div>
+    </div>
+    <div class="tic-card">
+      <p style="font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--muv-gray); margin-bottom:12px;">Seu Resumo de Setembro</p>
+      <p style="font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:0.04em; color:var(--muv-white); margin-bottom:20px;">Melhor mês até agora.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="padding:16px; background:var(--muv-surface-3); border-radius:2px;">
+          <p style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:var(--muv-orange); line-height:1;">847</p>
+          <p style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muv-gray); margin-top:4px;">Pontos</p>
+        </div>
+        <div style="padding:16px; background:var(--muv-surface-3); border-radius:2px;">
+          <p style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:var(--muv-white); line-height:1;">14h</p>
+          <p style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muv-gray); margin-top:4px;">Em Quadra</p>
+        </div>
+        <div style="padding:16px; background:var(--muv-surface-3); border-radius:2px;">
+          <p style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:var(--muv-white); line-height:1;">11</p>
+          <p style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muv-gray); margin-top:4px;">Vitórias</p>
+        </div>
+        <div style="padding:16px; background:var(--muv-surface-3); border-radius:2px;">
+          <p style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:var(--muv-white); line-height:1;">#47</p>
+          <p style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muv-gray); margin-top:4px;">Ranking RJ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     05 — GRAPHIC ELEMENTS
+══════════════════════════════════════ -->
+<section class="icon-section">
+  <p class="chip">05 — Elementos Gráficos</p>
+  <h2 class="section-title">Vocabulário Visual</h2>
+  <p class="section-body">Formas e elementos que constroem a linguagem visual da MUV além do logo. Simples, técnicos, precisos — como a marca.</p>
+
+  <div class="graphic-elements">
+    <div class="ge-card">
+      <div class="ge-visual">
+        <div class="icon-diamond"></div>
+      </div>
+      <p class="ge-label">Losango<br>Símbolo de precisão e distinção</p>
+    </div>
+    <div class="ge-card">
+      <div class="ge-visual">
+        <div class="icon-arrow"></div>
+      </div>
+      <p class="ge-label">Seta / Vetor<br>Direção e evolução</p>
+    </div>
+    <div class="ge-card">
+      <div class="ge-visual">
+        <div class="icon-dot-grid">
+          <div class="dot"></div><div class="dot"></div><div class="dot accent"></div>
+          <div class="dot"></div><div class="dot accent"></div><div class="dot"></div>
+          <div class="dot accent"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+      </div>
+      <p class="ge-label">Grid de Pontos<br>Dados, comunidade, rede</p>
+    </div>
+    <div class="ge-card">
+      <div class="ge-visual" style="display:flex; gap:3px; align-items:flex-end; height:60px; padding-top:10px;">
+        <div style="width:10px; height:30%; background:rgba(240,237,235,0.15); border-radius:2px 2px 0 0;"></div>
+        <div style="width:10px; height:55%; background:rgba(240,237,235,0.15); border-radius:2px 2px 0 0;"></div>
+        <div style="width:10px; height:45%; background:rgba(240,237,235,0.15); border-radius:2px 2px 0 0;"></div>
+        <div style="width:10px; height:80%; background:var(--muv-orange); border-radius:2px 2px 0 0;"></div>
+        <div style="width:10px; height:65%; background:rgba(240,237,235,0.15); border-radius:2px 2px 0 0;"></div>
+        <div style="width:10px; height:90%; background:rgba(240,237,235,0.15); border-radius:2px 2px 0 0;"></div>
+      </div>
+      <p class="ge-label">Barras de Performance<br>Gráfico de evolução</p>
+    </div>
+  </div>
+
+  <!-- Grid lines -->
+  <div style="margin-top:2px; display:grid; grid-template-columns:1fr 1fr; gap:2px;">
+    <div style="background:var(--muv-surface); padding:48px; position:relative; overflow:hidden; height:200px;">
+      <div style="position:absolute; inset:0; background-image: linear-gradient(var(--muv-white-10) 1px, transparent 1px), linear-gradient(90deg, var(--muv-white-10) 1px, transparent 1px); background-size:40px 40px;"></div>
+      <div style="position:absolute; inset:0; background-image: linear-gradient(rgba(255,95,31,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,95,31,0.06) 1px, transparent 1px); background-size:200px 200px;"></div>
+      <p style="position:relative; font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--muv-gray);">Grid Técnico — background sutil</p>
+    </div>
+    <div style="background:var(--muv-surface); padding:48px; position:relative; overflow:hidden; height:200px;">
+      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(255,95,31,0.15) 0%, transparent 70%);"></div>
+      <p style="position:relative; font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--muv-gray);">Orange Glow — elemento de foco</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     06 — BRAND VOICE
+══════════════════════════════════════ -->
+<section class="voice-section">
+  <p class="chip">06 — Voz da Marca</p>
+  <h2 class="section-title">Como a MUV Fala</h2>
+  <p class="section-body">A voz da MUV é direta, precisa e confiante. Nunca condescendente, nunca hollow. Cada palavra tem peso — porque o atleta MUV sabe a diferença.</p>
+
+  <div class="voice-spectrum">
+    <div class="vs-card">
+      <div class="vs-axis">
+        <div class="vs-dot"></div>
+        <div>
+          <p class="vs-title">Direto</p>
+          <p class="vs-not">Não: prolixo</p>
+        </div>
+      </div>
+      <p class="vs-desc">Fale o essencial. Cada notificação, cada título deve ser processado em 2 segundos. Se precisar de mais de uma frase para explicar, recorte.</p>
+    </div>
+    <div class="vs-card">
+      <div class="vs-axis">
+        <div class="vs-dot"></div>
+        <div>
+          <p class="vs-title">Confiante</p>
+          <p class="vs-not">Não: arrogante</p>
+        </div>
+      </div>
+      <p class="vs-desc">A MUV não pede desculpas. Afirma. Mas a confiança vem dos dados e da comunidade — nunca de menosprezo ou exclusão.</p>
+    </div>
+    <div class="vs-card">
+      <div class="vs-axis">
+        <div class="vs-dot"></div>
+        <div>
+          <p class="vs-title">Preciso</p>
+          <p class="vs-not">Não: vago</p>
+        </div>
+      </div>
+      <p class="vs-desc">Números, rankings, tempos — a MUV fala em dados concretos. "Você foi bem" nunca. "Você marcou 23 pontos, melhor do mês" sempre.</p>
+    </div>
+    <div class="vs-card">
+      <div class="vs-axis">
+        <div class="vs-dot"></div>
+        <div>
+          <p class="vs-title">Inspirador</p>
+          <p class="vs-not">Não: motivacional hollow</p>
+        </div>
+      </div>
+      <p class="vs-desc">A inspiração vem da conquista real, não de frases de efeito. O dado é o motivador. A história é a recompensa.</p>
+    </div>
+  </div>
+
+  <div class="copy-examples">
+    <div class="copy-card copy-do">
+      <p class="copy-card-header">MUV Diz</p>
+      <div class="copy-line">Você jogou 47 minutos. Melhor marca do mês.</div>
+      <div class="copy-line">Desbloqueado: Ace Machine. Top 5% da comunidade.</div>
+      <div class="copy-line">João te desafiou. Aceita?</div>
+      <div class="copy-line">3 jogadores perto de você procurando uma dupla agora.</div>
+      <div class="copy-line">Você subiu 12 posições no ranking esta semana.</div>
+      <div class="copy-line">Seu melhor set hoje: 6–1 em 18 minutos.</div>
+    </div>
+    <div class="copy-card copy-dont">
+      <p class="copy-card-header">MUV Nunca Diz</p>
+      <div class="copy-line">Parabéns pela sua incrível performance hoje!</div>
+      <div class="copy-line">Não se esqueça de registrar seus jogos!</div>
+      <div class="copy-line">Nossa tecnologia inovadora te permite evoluir.</div>
+      <div class="copy-line">Você foi bem! Continue assim 💪</div>
+      <div class="copy-line">Seus pontos foram computados com sucesso.</div>
+      <div class="copy-line">Clique aqui para ver sua performance!</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     07 — VISUAL DIRECTION
+══════════════════════════════════════ -->
+<section class="photo-section">
+  <p class="chip">07 — Direção Fotográfica</p>
+  <h2 class="section-title">Linguagem Visual</h2>
+  <p class="section-body">Fotografia e motion como espelho do atleta. Sempre em movimento, sempre com contexto, sempre com uma história por trás do enquadramento.</p>
+
+  <div class="photo-grid">
+    <div class="photo-card photo-card-span2">
+      <div class="photo-art">
+        <div class="art-lines-diag">
+          <div class="art-line-item" style="height:1px;"></div>
+          <div class="art-line-item" style="height:1px;"></div>
+          <div class="art-line-item" style="height:2px; background:rgba(255,95,31,0.2);"></div>
+          <div class="art-line-item" style="height:1px;"></div>
+          <div class="art-line-item" style="height:1px;"></div>
+          <div class="art-line-item" style="height:1px;"></div>
+          <div class="art-line-item" style="height:3px; background:rgba(255,95,31,0.12);"></div>
+          <div class="art-line-item" style="height:1px;"></div>
+        </div>
+      </div>
+      <div class="photo-card-content">
+        <p class="photo-card-tag">Motion First</p>
+        <p class="photo-card-title">Capture o Movimento, não a Pose</p>
+        <p class="photo-card-desc">Fotos e vídeos devem mostrar o atleta em ação — nunca posado. Raquetada, movimento de pés, sudor. O imperfeito autêntico supera o perfeito artificial.</p>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-art">
+        <div class="art-dots-pattern"></div>
+      </div>
+      <div class="photo-card-content">
+        <p class="photo-card-tag">Data Visual</p>
+        <p class="photo-card-title">Dados como Estética</p>
+        <p class="photo-card-desc">Gráficos e números são elementos visuais nobres na MUV, não apenas utilitários.</p>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-art" style="overflow:hidden;">
+        <div class="art-big-num">1</div>
+      </div>
+      <div class="photo-card-content">
+        <p class="photo-card-tag">Números de Impacto</p>
+        <p class="photo-card-title">O Número é o Hero</p>
+        <p class="photo-card-desc">Conquistas e rankings usam tipografia como elemento visual dominante.</p>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-art">
+        <div class="art-radial"></div>
+      </div>
+      <div class="photo-card-content">
+        <p class="photo-card-tag">Iluminação</p>
+        <p class="photo-card-title">Low Light + Glow</p>
+        <p class="photo-card-desc">Preferência por fotografias com luz direcional, baixa exposição, foco no sujeito.</p>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-art">
+        <div class="art-circle-set" style="border: 1px solid rgba(255,95,31,0.15);">
+          <div style="position:absolute; inset:20px; border-radius:50%; border: 1px solid rgba(255,95,31,0.08);"></div>
+          <div style="position:absolute; inset:40px; border-radius:50%; background: rgba(255,95,31,0.05);"></div>
+        </div>
+      </div>
+      <div class="photo-card-content">
+        <p class="photo-card-tag">Comunidade</p>
+        <p class="photo-card-title">O Grupo como Sujeito</p>
+        <p class="photo-card-desc">A comunidade tem espaço visual. A quadra cheia, o duelo, o cumprimento — estas cenas pertencem à MUV.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     08 — SYSTEM OVERVIEW
+══════════════════════════════════════ -->
+<section class="overview-section">
+  <p class="chip">08 — Resumo do Sistema</p>
+  <h2 class="section-title">A Marca em Uma Página</h2>
+  <p class="section-body">Todos os elementos fundamentais da identidade MUV em consulta rápida.</p>
+
+  <div class="overview-grid">
+    <div class="ov-card">
+      <p class="ov-num">01</p>
+      <p class="ov-title">Logo Principal</p>
+      <p class="ov-value">MUV + Tagline</p>
+      <p class="ov-desc">Bebas Neue · White on Dark · Tagline em Inter 600 laranja · Espaçamento mínimo = altura do M</p>
+    </div>
+    <div class="ov-card">
+      <p class="ov-num">02</p>
+      <p class="ov-title">Cor Principal</p>
+      <p class="ov-value">#FF5F1F Orange</p>
+      <p class="ov-desc">Usado como acento (máx. 15% da composição). CTAs, tagline, destaques de dado, conquistas.</p>
+    </div>
+    <div class="ov-card">
+      <p class="ov-num">03</p>
+      <p class="ov-title">Background Base</p>
+      <p class="ov-value">#0D1117 Black</p>
+      <p class="ov-desc">Fundo dominante. Com #161B22 para superfícies e #1E2630 para elementos elevados.</p>
+    </div>
+    <div class="ov-card">
+      <p class="ov-num">04</p>
+      <p class="ov-title">Fonte Display</p>
+      <p class="ov-value">Bebas Neue</p>
+      <p class="ov-desc">Headlines, wordmark, números de impacto, conquistas. Tracking 0.04–0.12em. Sempre uppercase.</p>
+    </div>
+    <div class="ov-card">
+      <p class="ov-num">05</p>
+      <p class="ov-title">Fonte de Texto</p>
+      <p class="ov-value">Inter (Light/Regular)</p>
+      <p class="ov-desc">Corpo: 300 Light. Labels: 600 Semibold + letra maiúscula + tracking 0.3em. Captions: 400 Regular.</p>
+    </div>
+    <div class="ov-card">
+      <p class="ov-num">06</p>
+      <p class="ov-title">Elemento Símbolo</p>
+      <p class="ov-value">Losango ◇</p>
+      <p class="ov-desc">Forma de precisão da marca. Usado como bullet point de luxo, separador, e base do ícone standalone.</p>
+    </div>
+    <div class="ov-card">
+      <p class="ov-num">07</p>
+      <p class="ov-title">Tom de Voz</p>
+      <p class="ov-value">Direto · Preciso</p>
+      <p class="ov-desc">Dados concretos. Frases curtas. Sem emojis em comunicação de marca. Sem exclamações em excesso.</p>
+    </div>
+    <div class="ov-card">
+      <p class="ov-num">08</p>
+      <p class="ov-title">Fotografia</p>
+      <p class="ov-value">Motion First</p>
+      <p class="ov-desc">Atleta em ação, nunca posado. Low light com glow. Dados e números como elementos visuais nobres.</p>
+    </div>
+    <div class="ov-card">
+      <p class="ov-num">09</p>
+      <p class="ov-title">Posicionamento</p>
+      <p class="ov-value">Athletic Premium</p>
+      <p class="ov-desc">A interseção entre alta performance e lifestyle refinado. Tech que desaparece, experiência que fica.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════
+     CLOSING
+══════════════════════════════════════ -->
+<section class="closing">
+  <p class="closing-kicker">MUV Brand Guidelines · v1.0 · 2026</p>
+  <p class="closing-mark">MUV</p>
+  <p class="closing-tagline-final">Move &nbsp;·&nbsp; Track &nbsp;·&nbsp; Evolve</p>
+  <p class="closing-body">
+    Este documento é a fundação da marca MUV. Cada decisão aqui tem um porquê — e respeitar esse sistema garante que a marca permaneça reconhecível, desejável e poderosa em qualquer ponto de contato.
+  </p>
+  <p class="closing-version">Brand Guidelines v1.0 · MUV Sports Technology · 2026</p>
+</section>
+
+</body>
+</html>
