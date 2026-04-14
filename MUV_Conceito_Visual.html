@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUV — Conceito Visual & Moodboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A0A;
+    --white: #F8F6F1;
+    --gray-1: #1A1A1A;
+    --gray-2: #2C2C2C;
+    --gray-light: #E8E6E1;
+    --gray-mid: #9A9A9A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* ─── COVER ─────────────────────────────────── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 64px;
+    position: relative;
+    overflow: hidden;
+    background: #0A0A0A;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+  }
+
+  .logo-cover {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    color: var(--white);
+  }
+
+  .cover-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+  }
+
+  .cover-kicker {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 32px;
+  }
+
+  .cover-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 14vw, 200px);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    position: relative;
+  }
+
+  .cover-headline span {
+    display: block;
+  }
+
+  .cover-sub {
+    margin-top: 48px;
+    max-width: 560px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(248,246,241,0.6);
+  }
+
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+  }
+
+  .cover-line {
+    width: 60px;
+    height: 1px;
+    background: var(--gray-mid);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 16px;
+  }
+
+  /* ─── SECTION SYSTEM ────────────────────────── */
+  section {
+    padding: 100px 64px;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--gray-mid);
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  p.lead {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(248,246,241,0.7);
+    max-width: 680px;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 0 64px;
+  }
+
+  /* ─── BRAND ESSENCE ─────────────────────────── */
+  .essence-section {
+    background: var(--gray-1);
+  }
+
+  .essence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 64px;
+    align-items: start;
+  }
+
+  .essence-statement {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--white);
+  }
+
+  .essence-statement em {
+    font-style: normal;
+    color: rgba(248,246,241,0.3);
+  }
+
+  .essence-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 8px;
+  }
+
+  .pillar {
+    border-left: 2px solid rgba(255,255,255,0.15);
+    padding-left: 24px;
+  }
+
+  .pillar-title {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .pillar-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(248,246,241,0.55);
+    line-height: 1.65;
+  }
+
+  /* ─── BRAND WORLD ────────────────────────────── */
+  .world-section {
+    background: var(--black);
+  }
+
+  .world-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 68px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    border-left: 3px solid var(--white);
+    padding-left: 40px;
+    margin: 64px 0;
+  }
+
+  .world-quote span {
+    color: rgba(248,246,241,0.25);
+  }
+
+  .world-attrs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+  }
+
+  .attr-card {
+    background: var(--gray-1);
+    padding: 40px 32px;
+    transition: background 0.3s;
+  }
+
+  .attr-card:hover {
+    background: var(--gray-2);
+  }
+
+  .attr-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: rgba(248,246,241,0.12);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .attr-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .attr-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(248,246,241,0.5);
+  }
+
+  /* ─── TYPOGRAPHY ─────────────────────────────── */
+  .type-section {
+    background: var(--white);
+    color: var(--black);
+  }
+
+  .type-section .section-label {
+    color: rgba(10,10,10,0.4);
+  }
+
+  .type-section .section-label::before {
+    background: rgba(10,10,10,0.4);
+  }
+
+  .type-section h2 {
+    color: var(--black);
+  }
+
+  .type-section p.lead {
+    color: rgba(10,10,10,0.6);
+  }
+
+  .type-showcase {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+
+  .type-block {
+    border-top: 1px solid rgba(10,10,10,0.12);
+    padding-top: 32px;
+  }
+
+  .type-meta {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(10,10,10,0.4);
+    margin-bottom: 20px;
+  }
+
+  .type-display-1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px;
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--black);
+  }
+
+  .type-display-2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: var(--black);
+  }
+
+  .type-body-1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(10,10,10,0.8);
+    margin-top: 16px;
+  }
+
+  .type-body-2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(10,10,10,0.6);
+    margin-top: 16px;
+  }
+
+  .type-label-ex {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(10,10,10,0.4);
+    margin-top: 16px;
+  }
+
+  .type-font-name {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(10,10,10,0.3);
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* ─── COLOR PALETTES ────────────────────────── */
+  .color-section {
+    background: var(--gray-1);
+  }
+
+  .palettes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin-top: 64px;
+  }
+
+  .palette-row {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    align-items: start;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 48px;
+  }
+
+  .palette-info {}
+
+  .palette-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    color: rgba(248,246,241,0.08);
+    margin-bottom: -8px;
+  }
+
+  .palette-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .palette-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(248,246,241,0.5);
+    margin-bottom: 20px;
+  }
+
+  .palette-mood {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(248,246,241,0.3);
+  }
+
+  .palette-swatches {
+    display: flex;
+    gap: 3px;
+    align-items: stretch;
+    height: 200px;
+  }
+
+  .swatch {
+    flex: 1;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px 14px;
+    transition: flex 0.4s cubic-bezier(0.25,1,0.5,1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .swatch:hover { flex: 2.5; }
+
+  .swatch-hex {
+    font-size: 10px;
+    font-family: 'Inter', monospace;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+  }
+
+  .swatch-role {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* Palette 1: Midnight Move */
+  .p1-1 { background: #0D1117; }
+  .p1-2 { background: #161B22; }
+  .p1-3 { background: #C9F135; }
+  .p1-4 { background: #F0EDEB; }
+  .p1-5 { background: #6B6B6B; }
+
+  /* Palette 2: Solar Court */
+  .p2-1 { background: #111111; }
+  .p2-2 { background: #1C1C1C; }
+  .p2-3 { background: #FF5F1F; }
+  .p2-4 { background: #FFFFFF; }
+  .p2-5 { background: #888888; }
+
+  /* Palette 3: Signal Teal */
+  .p3-1 { background: #090F1A; }
+  .p3-2 { background: #141E2E; }
+  .p3-3 { background: #00D4AA; }
+  .p3-4 { background: #F5F2EE; }
+  .p3-5 { background: #5A7080; }
+
+  .light-text { color: var(--white); }
+  .dark-text  { color: var(--black); }
+
+  /* ─── VISUAL LANGUAGE ────────────────────────── */
+  .visual-section {
+    background: var(--black);
+  }
+
+  .visual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+  }
+
+  .visual-card {
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    background: var(--gray-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px 28px;
+  }
+
+  .visual-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    z-index: 1;
+  }
+
+  .visual-card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .visual-card-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .visual-card-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(248,246,241,0.4);
+    margin-bottom: 8px;
+  }
+
+  .visual-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  /* abstract art in cards */
+  .art-motion {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: conic-gradient(from 45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.15), rgba(255,255,255,0.02), rgba(255,255,255,0.12));
+    transform: rotate(-20deg);
+    filter: blur(1px);
+  }
+
+  .art-grid-lines {
+    width: 100%;
+    height: 100%;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .art-streak {
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transform: rotate(-35deg) translateY(-60px);
+    box-shadow: 0 40px 0 rgba(255,255,255,0.06), 0 80px 0 rgba(255,255,255,0.03);
+  }
+
+  .art-circle-outline {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+
+  .art-circle-outline::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .art-data-bars {
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+    height: 140px;
+    padding: 20px;
+  }
+
+  .art-bar {
+    width: 12px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px 2px 0 0;
+  }
+
+  .art-diagonal {
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transform: rotate(45deg);
+    position: relative;
+  }
+
+  .art-diagonal::after {
+    content: '';
+    position: absolute;
+    inset: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* ─── BRAND VOICE ────────────────────────────── */
+  .voice-section {
+    background: var(--gray-1);
+  }
+
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 64px;
+  }
+
+  .voice-col-title {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .voice-item {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(248,246,241,0.7);
+  }
+
+  .voice-item strong {
+    font-weight: 600;
+    color: var(--white);
+    font-style: normal;
+  }
+
+  .voice-item em {
+    font-style: italic;
+    color: rgba(248,246,241,0.4);
+    font-size: 13px;
+  }
+
+  /* ─── LOGO CONCEPT ───────────────────────────── */
+  .logo-section {
+    background: var(--black);
+    text-align: center;
+  }
+
+  .logo-concepts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 80px;
+  }
+
+  .logo-concept-card {
+    background: var(--gray-1);
+    padding: 64px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .logo-display {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--white);
+  }
+
+  /* Direction A: Pure wordmark */
+  .logo-a .logo-display {
+    font-size: 72px;
+    letter-spacing: 0.18em;
+    font-weight: 400;
+  }
+
+  /* Direction B: Wordmark + tagline */
+  .logo-b .logo-display {
+    font-size: 80px;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    position: relative;
+  }
+
+  .logo-b .logo-display::after {
+    content: '▶';
+    font-size: 16px;
+    color: rgba(248,246,241,0.4);
+    position: absolute;
+    bottom: 8px;
+    right: -24px;
+  }
+
+  /* Direction C: With symbol */
+  .logo-c .logo-symbol {
+    width: 56px;
+    height: 56px;
+    border: 2px solid var(--white);
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-c .logo-symbol-inner {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    transform: rotate(-45deg);
+    letter-spacing: 0.05em;
+  }
+
+  .logo-c .logo-display {
+    font-size: 64px;
+    letter-spacing: 0.12em;
+  }
+
+  .logo-concept-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+  }
+
+  .logo-concept-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(248,246,241,0.45);
+    line-height: 1.6;
+    text-align: center;
+    max-width: 220px;
+  }
+
+  /* Dark version cards */
+  .logo-on-dark {
+    background: var(--white);
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo-on-dark .logo-display {
+    color: var(--black);
+    font-size: 48px;
+    letter-spacing: 0.16em;
+  }
+
+  /* ─── CLOSING ─────────────────────────────────── */
+  .closing-section {
+    background: var(--black);
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 64px;
+  }
+
+  .closing-kicker {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 48px;
+  }
+
+  .closing-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 10vw, 140px);
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 48px;
+  }
+
+  .closing-sub {
+    max-width: 520px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(248,246,241,0.5);
+  }
+
+  .closing-line {
+    margin-top: 80px;
+    width: 1px;
+    height: 80px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────── */
+  @media (max-width: 900px) {
+    section { padding: 80px 32px; }
+    .cover { padding: 40px 32px; }
+    hr.divider { margin: 0 32px; }
+    .essence-grid, .type-showcase, .world-attrs,
+    .visual-grid, .voice-grid, .logo-concepts { grid-template-columns: 1fr; }
+    .palette-row { grid-template-columns: 1fr; }
+    .palette-swatches { height: 120px; }
+    .cover-headline { font-size: clamp(64px, 18vw, 140px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     COVER
+═══════════════════════════════════════════ -->
+<div class="cover">
+  <nav class="cover-nav">
+    <span class="logo-cover">MUV</span>
+    <span>Identidade Visual — Conceito</span>
+    <span>2026</span>
+  </nav>
+
+  <div class="cover-body">
+    <p class="cover-kicker">Moodboard & Direção Criativa</p>
+    <h1 class="cover-headline">
+      <span>YOU</span>
+      <span>ARE</span>
+      <span>MUV</span>
+    </h1>
+    <p class="cover-sub">
+      Uma marca não é um logo. É um espelho. A MUV existe para refletir quem os atletas são — e iluminar quem eles querem se tornar.
+    </p>
+  </div>
+
+  <footer class="cover-footer">
+    <div>
+      <span class="cover-line"></span>
+      Beach Tennis & Padel Technology
+    </div>
+    <div>Exclusividade · Identidade · Movimento</div>
+  </footer>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     BRAND ESSENCE
+═══════════════════════════════════════════ -->
+<section class="essence-section">
+  <p class="section-label">01 — Essência da Marca</p>
+  <h2>O que é MUV</h2>
+  <p class="lead">Tecnologia que não parece tecnologia. Pertencimento que não precisa ser explicado. Uma comunidade que você reconhece no primeiro acesso.</p>
+
+  <div class="essence-grid">
+    <div>
+      <p class="essence-statement">
+        MUV <em>é o espelho</em> do atleta que você <em>decide</em> ser.
+      </p>
+    </div>
+    <div class="essence-pillars">
+      <div class="pillar">
+        <p class="pillar-title">Exclusividade</p>
+        <p class="pillar-desc">Não é sobre excluir. É sobre criar um mundo onde entrar significa algo. A marca seleciona por desejo, não por barreira. Quem quer estar, vai querer cada vez mais.</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-title">Identidade</p>
+        <p class="pillar-desc">O produto é o que o cliente compra. A marca é quem ele vira quando usa. MUV deve ser reconhecida como extensão da personalidade do atleta — seus valores, objetivos e estilo de vida.</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-title">Storytelling</p>
+        <p class="pillar-desc">A história não começa no produto. Começa no desejo. Cada pulseira, cada ponto marcado, cada conquista desbloqueada é um capítulo. O cliente não compra — ele participa.</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-title">Movimento</p>
+        <p class="pillar-desc">MUV vem de movement — e o movimento é o único estado aceito pela marca. Performance em quadra, evolução nos dados, expansão da comunidade. Tudo avança.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     BRAND WORLD
+═══════════════════════════════════════════ -->
+<section class="world-section">
+  <p class="section-label">02 — O Mundo MUV</p>
+  <h2>O Universo que Vamos Criar</h2>
+  <p class="lead">Marcas que duram não vendem produto. Vendem um mundo que as pessoas querem habitar. A MUV constrói esse mundo ponto a ponto.</p>
+
+  <div class="world-quote">
+    "Não é sobre onde você joga.<br>
+    <span>É sobre quem você se torna</span><br>
+    enquanto joga."
+  </div>
+
+  <div class="world-attrs">
+    <div class="attr-card">
+      <p class="attr-num">01</p>
+      <p class="attr-title">Athletic Premium</p>
+      <p class="attr-desc">A estética MUV vive no cruzamento entre alta performance e lifestyle refinado. Não é academia. Não é clube de campo. É o espaço entre os dois — onde o atleta moderno mora.</p>
+    </div>
+    <div class="attr-card">
+      <p class="attr-num">02</p>
+      <p class="attr-title">Data as Poetry</p>
+      <p class="attr-desc">Seus dados de jogo não são números. São o retrato de uma jornada. Cada ponto marcado, cada minuto em quadra é um verso da sua história como atleta. MUV os torna belos.</p>
+    </div>
+    <div class="attr-card">
+      <p class="attr-num">03</p>
+      <p class="attr-title">Community First</p>
+      <p class="attr-desc">Você não entra na MUV. Você é recebido por ela. Duelos, rankings, campeonatos, grupos — a tecnologia é o pretexto. A comunidade é o propósito.</p>
+    </div>
+    <div class="attr-card">
+      <p class="attr-num">04</p>
+      <p class="attr-title">Progress Ritual</p>
+      <p class="attr-desc">Conquistar algo na MUV deve ter peso. As conquistas, os marcos de evolução, os rankings — cada um deve ser celebrado como se fosse uma vitória real. Porque é.</p>
+    </div>
+    <div class="attr-card">
+      <p class="attr-num">05</p>
+      <p class="attr-title">Invisible Tech</p>
+      <p class="attr-desc">A tecnologia some no background. O que sobra é a experiência. A pulseira, o placar, o app — tudo deve parecer natural, quase inevitável. Boa tecnologia não se explica.</p>
+    </div>
+    <div class="attr-card">
+      <p class="attr-num">06</p>
+      <p class="attr-title">Arena as Stage</p>
+      <p class="attr-desc">A quadra deixa de ser só um espaço físico. Com MUV, ela vira um palco. O placar com patrocinadores, os dados ao vivo, a experiência coletiva — a arena amplifica cada jogada.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     TYPOGRAPHY
+═══════════════════════════════════════════ -->
+<section class="type-section">
+  <p class="section-label">03 — Tipografia</p>
+  <h2 style="color: var(--black);">Sistema Tipográfico</h2>
+  <p class="lead" style="color: rgba(10,10,10,0.6);">Duas famílias. Uma para impacto, outra para conexão. A combinação entre força e leveza define o tom da marca.</p>
+
+  <div class="type-showcase">
+    <div>
+      <div class="type-block">
+        <p class="type-meta">Display — Bebas Neue</p>
+        <p class="type-display-1">MUV</p>
+        <p class="type-display-2">YOU MOVE<br>WE TRACK</p>
+        <p class="type-font-name">Bebas Neue — Uso em headlines, wordmark, números de impacto</p>
+      </div>
+      <div class="type-block" style="margin-top: 48px;">
+        <p class="type-meta">Body — Inter Light</p>
+        <p class="type-body-1">A evolução começa quando você começa a medir.</p>
+        <p class="type-body-2">Cada ponto marcado em quadra vira dado. Cada dado vira história. Cada história constrói o atleta que você quer ser.</p>
+        <p class="type-label-ex">Label / Tag / UI Elements</p>
+        <p class="type-font-name">Inter — Uso em corpo de texto, interface, documentos</p>
+      </div>
+    </div>
+    <div>
+      <div class="type-block">
+        <p class="type-meta">Hierarquia em uso</p>
+        <p class="type-display-2" style="font-size: 40px; margin-bottom: 8px;">CONQUISTA</p>
+        <p style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(10,10,10,0.35); margin-bottom: 12px;">500 PONTOS MARCADOS</p>
+        <p class="type-body-2">Você acaba de marcar seu 500º ponto na MUV. Isso coloca você entre os 8% mais ativos da comunidade este mês.</p>
+        <div style="margin-top: 24px; padding: 24px; background: var(--black); border-radius: 2px;">
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.05em; color: var(--white); margin-bottom: 4px;">RANK #47</p>
+          <p style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,246,241,0.35);">Beach Tennis — Rio de Janeiro</p>
+        </div>
+      </div>
+      <div class="type-block" style="margin-top: 48px;">
+        <p class="type-meta">Auxiliar — DM Sans</p>
+        <p class="type-body-2" style="font-family: 'DM Sans', sans-serif; font-size: 16px;">DM Sans para textos de apoio, legendas e conteúdo editorial. Combina leveza com leiturabilidade em contextos mais longos.</p>
+        <p class="type-font-name">DM Sans — Uso em editorial, textos longos, notificações</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     COLOR PALETTES
+═══════════════════════════════════════════ -->
+<section class="color-section">
+  <p class="section-label">04 — Paletas de Cor</p>
+  <h2>Três Direções Cromáticas</h2>
+  <p class="lead">Cada paleta conta uma história diferente sobre quem é a MUV. As três são premium, as três funcionam — a escolha define o caráter final da marca.</p>
+
+  <div class="palettes-container">
+
+    <!-- Palette 1 -->
+    <div class="palette-row">
+      <div class="palette-info">
+        <p class="palette-num">01</p>
+        <p class="palette-name">Midnight Move</p>
+        <p class="palette-desc">Dark-first, com acento lime/neon. Tecnologia sofisticada, energia contida que explode no detalhe. Referência: Whoop, Arc'teryx, Nike Tech Fleece.</p>
+        <p class="palette-mood">Tech · Noturno · Exclusivo</p>
+      </div>
+      <div class="palette-swatches">
+        <div class="swatch p1-1 light-text">
+          <span class="swatch-hex">#0D1117</span>
+          <span class="swatch-role">Base</span>
+        </div>
+        <div class="swatch p1-2 light-text">
+          <span class="swatch-hex">#161B22</span>
+          <span class="swatch-role">Superfície</span>
+        </div>
+        <div class="swatch p1-3 dark-text">
+          <span class="swatch-hex">#C9F135</span>
+          <span class="swatch-role">Accent</span>
+        </div>
+        <div class="swatch p1-4 dark-text">
+          <span class="swatch-hex">#F0EDEB</span>
+          <span class="swatch-role">Texto</span>
+        </div>
+        <div class="swatch p1-5 light-text">
+          <span class="swatch-hex">#6B6B6B</span>
+          <span class="swatch-role">Sutil</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 2 -->
+    <div class="palette-row">
+      <div class="palette-info">
+        <p class="palette-num">02</p>
+        <p class="palette-name">Solar Court</p>
+        <p class="palette-desc">Quase preto com laranja solar. Energia, urgência, gosto pelo jogo. A cor do esforço e da vitória. Referência: Strava, Rapha, Hoka.</p>
+        <p class="palette-mood">Energia · Dinâmico · Humano</p>
+      </div>
+      <div class="palette-swatches">
+        <div class="swatch p2-1 light-text">
+          <span class="swatch-hex">#111111</span>
+          <span class="swatch-role">Base</span>
+        </div>
+        <div class="swatch p2-2 light-text">
+          <span class="swatch-hex">#1C1C1C</span>
+          <span class="swatch-role">Superfície</span>
+        </div>
+        <div class="swatch p2-3 light-text">
+          <span class="swatch-hex">#FF5F1F</span>
+          <span class="swatch-role">Accent</span>
+        </div>
+        <div class="swatch p2-4 dark-text">
+          <span class="swatch-hex">#FFFFFF</span>
+          <span class="swatch-role">Texto</span>
+        </div>
+        <div class="swatch p2-5 light-text">
+          <span class="swatch-hex">#888888</span>
+          <span class="swatch-role">Sutil</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 3 -->
+    <div class="palette-row">
+      <div class="palette-info">
+        <p class="palette-num">03</p>
+        <p class="palette-name">Signal</p>
+        <p class="palette-desc">Azul noite profundo com teal/água. Evoca o outdoor, a quadra ao ar livre, o céu antes do jogo. Tech que respeita o natural. Referência: Garmin, District Vision, Patagonia.</p>
+        <p class="palette-mood">Outdoor · Sereno · Preciso</p>
+      </div>
+      <div class="palette-swatches">
+        <div class="swatch p3-1 light-text">
+          <span class="swatch-hex">#090F1A</span>
+          <span class="swatch-role">Base</span>
+        </div>
+        <div class="swatch p3-2 light-text">
+          <span class="swatch-hex">#141E2E</span>
+          <span class="swatch-role">Superfície</span>
+        </div>
+        <div class="swatch p3-3 dark-text">
+          <span class="swatch-hex">#00D4AA</span>
+          <span class="swatch-role">Accent</span>
+        </div>
+        <div class="swatch p3-4 dark-text">
+          <span class="swatch-hex">#F5F2EE</span>
+          <span class="swatch-role">Texto</span>
+        </div>
+        <div class="swatch p3-5 light-text">
+          <span class="swatch-hex">#5A7080</span>
+          <span class="swatch-role">Sutil</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     VISUAL LANGUAGE
+═══════════════════════════════════════════ -->
+<section class="visual-section">
+  <p class="section-label">05 — Linguagem Visual</p>
+  <h2>Estética & Direção de Arte</h2>
+  <p class="lead">A linguagem visual da MUV é construída em três pilares: movimento capturado, dados como forma, e espaço como respiro.</p>
+
+  <div class="visual-grid">
+    <div class="visual-card">
+      <div class="visual-card-bg">
+        <div class="art-motion"></div>
+      </div>
+      <div class="visual-card-content">
+        <p class="visual-card-label">Fotografia</p>
+        <p class="visual-card-title">Motion First</p>
+      </div>
+    </div>
+    <div class="visual-card">
+      <div class="visual-card-bg">
+        <div class="art-grid-lines"></div>
+      </div>
+      <div class="visual-card-content">
+        <p class="visual-card-label">Dados</p>
+        <p class="visual-card-title">Data Visual</p>
+      </div>
+    </div>
+    <div class="visual-card">
+      <div class="visual-card-bg" style="align-items: flex-start;">
+        <div class="art-streak"></div>
+      </div>
+      <div class="visual-card-content">
+        <p class="visual-card-label">Composição</p>
+        <p class="visual-card-title">Speed Lines</p>
+      </div>
+    </div>
+    <div class="visual-card">
+      <div class="visual-card-bg">
+        <div class="art-circle-outline"></div>
+      </div>
+      <div class="visual-card-content">
+        <p class="visual-card-label">Símbolo</p>
+        <p class="visual-card-title">Precision Mark</p>
+      </div>
+    </div>
+    <div class="visual-card">
+      <div class="visual-card-bg">
+        <div class="art-data-bars">
+          <div class="art-bar" style="height:30%"></div>
+          <div class="art-bar" style="height:55%"></div>
+          <div class="art-bar" style="height:45%"></div>
+          <div class="art-bar" style="height:80%"></div>
+          <div class="art-bar" style="height:65%"></div>
+          <div class="art-bar" style="height:90%"></div>
+          <div class="art-bar" style="height:70%"></div>
+          <div class="art-bar" style="height:85%"></div>
+          <div class="art-bar" style="height:100%"></div>
+          <div class="art-bar" style="height:75%"></div>
+        </div>
+      </div>
+      <div class="visual-card-content">
+        <p class="visual-card-label">UI / App</p>
+        <p class="visual-card-title">Performance Graph</p>
+      </div>
+    </div>
+    <div class="visual-card">
+      <div class="visual-card-bg">
+        <div class="art-diagonal"></div>
+      </div>
+      <div class="visual-card-content">
+        <p class="visual-card-label">Geometria</p>
+        <p class="visual-card-title">Angular Tension</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     LOGO CONCEPTS
+═══════════════════════════════════════════ -->
+<section class="logo-section" style="text-align: left;">
+  <p class="section-label">06 — Conceito de Logo</p>
+  <h2>Direções para o Wordmark</h2>
+  <p class="lead">Três direções iniciais para exploração. Todas partem do princípio de que MUV deve ser reconhecível em 0.3 segundos — em qualquer fundo, qualquer tamanho.</p>
+
+  <div class="logo-concepts">
+    <div class="logo-concept-card">
+      <p class="logo-concept-label">Direção A</p>
+      <div class="logo-a">
+        <p class="logo-display">MUV</p>
+      </div>
+      <div class="logo-on-dark logo-a">
+        <p class="logo-display" style="color: var(--black) !important; font-size: 48px !important; letter-spacing: 0.16em !important;">MUV</p>
+      </div>
+      <p class="logo-concept-desc">Wordmark puro. Máximo espaçamento, máxima confiança. A marca fala por si.</p>
+    </div>
+
+    <div class="logo-concept-card">
+      <p class="logo-concept-label">Direção B</p>
+      <div class="logo-b" style="text-align: center; position: relative;">
+        <p class="logo-display">MUV<span style="font-size: 28px; vertical-align: super; margin-left: 4px; color: rgba(248,246,241,0.3);">™</span></p>
+        <p style="font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(248,246,241,0.3); margin-top: 8px;">MOVE · TRACK · EVOLVE</p>
+      </div>
+      <div class="logo-on-dark" style="flex-direction: column; gap: 4px;">
+        <p style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.1em; color: var(--black);">MUV</p>
+        <p style="font-size: 8px; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(10,10,10,0.35);">MOVE · TRACK · EVOLVE</p>
+      </div>
+      <p class="logo-concept-desc">Wordmark com tagline. Ancora o propósito da marca ao nome. Versatilidade em contextos de comunicação.</p>
+    </div>
+
+    <div class="logo-concept-card">
+      <p class="logo-concept-label">Direção C</p>
+      <div class="logo-c" style="display: flex; align-items: center; gap: 20px;">
+        <div class="logo-symbol">
+          <span class="logo-symbol-inner">M</span>
+        </div>
+        <p class="logo-display" style="font-size: 56px; letter-spacing: 0.08em;">MUV</p>
+      </div>
+      <div class="logo-on-dark" style="gap: 16px;">
+        <div style="width: 40px; height: 40px; border: 2px solid var(--black); transform: rotate(45deg); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Bebas Neue', sans-serif; font-size: 16px; transform: rotate(-45deg);">M</span>
+        </div>
+        <p style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: 0.1em; color: var(--black);">MUV</p>
+      </div>
+      <p class="logo-concept-desc">Símbolo + wordmark. O losango como marca de precisão e distinção — base para ícone de app e bordado.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     BRAND VOICE
+═══════════════════════════════════════════ -->
+<section class="voice-section">
+  <p class="section-label">07 — Voz da Marca</p>
+  <h2>Como a MUV Fala</h2>
+  <p class="lead">Toda escolha de palavra é uma escolha de posicionamento. A voz MUV é precisa, direta e inspiradora — nunca arrogante, nunca genérica.</p>
+
+  <div class="voice-grid">
+    <div>
+      <p class="voice-col-title">MUV diz</p>
+      <div class="voice-item"><strong>Você jogou 47 min. Melhor marca do mês.</strong> <em>— dado + conquista</em></div>
+      <div class="voice-item"><strong>Desbloqueado: Ace Machine.</strong> <em>— conquista curta, impactante</em></div>
+      <div class="voice-item"><strong>Há 3 jogadores perto de você procurando uma dupla.</strong> <em>— comunidade prática</em></div>
+      <div class="voice-item"><strong>Você subiu 12 posições no ranking esta semana.</strong> <em>— progresso visível</em></div>
+      <div class="voice-item"><strong>João te desafiou. Aceita?</strong> <em>— duelo direto, no match</em></div>
+    </div>
+    <div>
+      <p class="voice-col-title">MUV nunca diz</p>
+      <div class="voice-item"><strong>Parabéns pela sua incrível performance!</strong> <em>— genérico e hollow</em></div>
+      <div class="voice-item"><strong>Não se esqueça de registrar seus jogos!</strong> <em>— reminder condescendente</em></div>
+      <div class="voice-item"><strong>Nossa tecnologia inovadora permite que você...</strong> <em>— tecnês sem significado</em></div>
+      <div class="voice-item"><strong>Você foi bem hoje! Continue assim 💪</strong> <em>— coaching de app padrão</em></div>
+      <div class="voice-item"><strong>Seus pontos foram computados com sucesso.</strong> <em>— linguagem de sistema, não de marca</em></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     CLOSING
+═══════════════════════════════════════════ -->
+<section class="closing-section">
+  <p class="closing-kicker">MUV — Conceito Visual · 2026</p>
+  <h2 class="closing-headline">
+    THIS IS<br>YOUR MOVE
+  </h2>
+  <p class="closing-sub">
+    Este documento é o ponto de partida. A direção criativa está definida — o próximo passo é escolher a paleta, refinar o wordmark e construir o sistema completo de identidade visual.
+  </p>
+  <div class="closing-line"></div>
+</section>
+
+</body>
+</html>
